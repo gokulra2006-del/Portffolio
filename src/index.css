@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-gh-bg: #0d1117;
+  --color-gh-bg-secondary: #161b22;
+  --color-gh-border: #30363d;
+  --color-gh-text: #c9d1d9;
+  --color-gh-text-muted: #8b949e;
+  --color-gh-blue: #58a6ff;
+  --color-gh-blue-hover: #79c0ff;
+  --color-gh-purple: #bc8cff;
+  --color-gh-purple-hover: #d2a8ff;
+
+  --font-sans: 'Inter', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-gh-bg text-gh-text font-sans antialiased;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gh-bg;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gh-border rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gh-text-muted;
+  }
+}
+
+@layer components {
+  .card-base {
+    @apply bg-gh-bg-secondary border border-gh-border rounded-xl transition-all duration-300;
+  }
+  
+  .card-hover {
+    @apply hover:border-gh-blue/50 hover:shadow-[0_4px_20px_rgba(88,166,255,0.1)];
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg transition-all duration-300 bg-gh-blue text-[#0d1117] hover:bg-gh-blue-hover hover:shadow-[0_0_15px_rgba(88,166,255,0.4)];
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center px-6 py-3 font-medium rounded-lg transition-all duration-300 bg-transparent border border-gh-border text-gh-text hover:border-gh-blue hover:text-gh-blue hover:bg-gh-blue/5;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gh-blue/10 text-gh-blue border border-gh-blue/20;
+  }
+}
+
+@keyframes gradient-xy {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.bg-gradient-mesh {
+  background: radial-gradient(circle at 15% 50%, rgba(88, 166, 255, 0.08), transparent 25%),
+              radial-gradient(circle at 85% 30%, rgba(188, 140, 255, 0.08), transparent 25%);
+  background-size: 200% 200%;
+  animation: gradient-xy 15s ease infinite;
+}
