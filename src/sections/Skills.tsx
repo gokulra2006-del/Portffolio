@@ -11,8 +11,12 @@ const SKILL_CATEGORIES = [
     skills: ['React', 'Next.js', 'Node.js', 'Express', 'Tailwind CSS', 'Framer Motion', 'Redux'],
   },
   {
-    title: 'Tools, Cloud & Security',
-    skills: ['Git & GitHub', 'Docker', 'Firebase', 'Cloud Computing', 'Cybersecurity', 'MongoDB', 'PostgreSQL', 'Redis', 'REST APIs', 'Vite'],
+    title: 'Databases & APIs',
+    skills: ['MongoDB', 'PostgreSQL', 'Redis', 'REST APIs', 'API Integration', 'GraphQL'],
+  },
+  {
+    title: 'Cloud, Tools & Security',
+    skills: ['Git & GitHub', 'Docker', 'Firebase', 'Cloud Computing', 'Cybersecurity', 'SOC (Security Operations)', 'Vite'],
   },
 ];
 
@@ -38,7 +42,7 @@ export function Skills() {
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {SKILL_CATEGORIES.map((category, index) => (
             <FadeIn key={index}>
               <div className="bg-gh-bg-secondary p-6 rounded-xl border border-gh-border h-full">

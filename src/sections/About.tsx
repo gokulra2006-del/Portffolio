@@ -1,8 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { Section } from '../components/Section';
 import { FadeIn, FadeInStagger } from '../components/FadeIn';
-
-const GithubStats = lazy(() => import('../components/GithubStats').then(module => ({ default: module.GithubStats })));
+import { Terminal } from '../components/Terminal';
 
 export function About() {
   return (
@@ -29,14 +28,12 @@ export function About() {
           </FadeIn>
           <FadeIn>
             <p>
-              Whether it's developing AI assistants that personalize learning experiences or building robust code review platforms, I am driven by the impact software can have on solving complex problems. I'm actively seeking opportunities to apply my skills in a fast-paced, engineering-focused environment.
+              Whether it's developing AI assistants that personalize learning experiences or building robust code review platforms, I am driven by the impact software can have on solving complex problems. I recently won <span className="text-gh-blue font-medium">2nd Place at the Hackwarts Hackathon</span> and completed a <span className="text-gh-blue font-medium">Full-Stack Internship at Incrix Techlutions</span>, showcasing my ability to build and deliver innovative solutions under pressure. I'm actively seeking opportunities to apply my skills in a fast-paced, engineering-focused environment.
             </p>
           </FadeIn>
-          <FadeIn>
-            <Suspense fallback={<div className="animate-pulse bg-gh-border/20 h-24 rounded-xl max-w-sm mt-8"></div>}>
-              <GithubStats />
-            </Suspense>
-          </FadeIn>
+
+          
+          <Terminal />
         </div>
       </FadeInStagger>
     </Section>

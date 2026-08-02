@@ -3,11 +3,13 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { SiGmail } from 'react-icons/si';
 import { Section } from '../components/Section';
 import { FadeIn, FadeInStagger } from '../components/FadeIn';
+import { ParticleBackground } from '../components/ParticleBackground';
+import { Typewriter } from '../components/Typewriter';
 
 export function Hero() {
   return (
     <Section id="hero" className="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-mesh z-0 pointer-events-none"></div>
+      <ParticleBackground />
       
       <FadeInStagger className="flex flex-col items-start gap-6 max-w-3xl relative z-10">
         <FadeIn>
@@ -15,8 +17,8 @@ export function Hero() {
         </FadeIn>
         
         <FadeIn>
-          <h1 className="text-5xl md:text-7xl font-bold text-gh-text">
-            Gokul.
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gh-text font-mono tracking-tight">
+            <Typewriter text="Gokul Ramachandran" delay={100} />
           </h1>
         </FadeIn>
         

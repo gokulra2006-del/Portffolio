@@ -39,15 +39,14 @@ export function FadeIn({
   const shouldReduceMotion = useReducedMotion();
   const isInStaggerGroup = useContext(FadeInStaggerContext);
 
-  const transition = {
-    duration: 0.5,
-    delay: delay,
-    ease: 'easeOut',
-  };
 
   const variants = {
     hidden: { opacity: 0, y: shouldReduceMotion ? 0 : 24 },
-    visible: { opacity: 1, y: 0, transition },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, delay, ease: "easeOut" as any }
+    },
   };
 
   return (

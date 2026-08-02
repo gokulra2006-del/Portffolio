@@ -3,6 +3,7 @@ import { Section } from '../components/Section';
 import { Folder, ChevronDown, ChevronUp } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 import { FadeIn, FadeInStagger } from '../components/FadeIn';
+import { TiltCard } from '../components/TiltCard';
 
 const PROJECTS = [
   {
@@ -94,7 +95,8 @@ const PROJECTS = [
 function FeaturedProjectCard({ project }: { project: typeof PROJECTS[0] }) {
   return (
     <FadeIn className="w-full">
-      <div className="card-base card-hover p-8 flex flex-col md:flex-row gap-8 items-center relative overflow-hidden group mb-12">
+      <TiltCard>
+        <div className="card-base card-hover p-8 flex flex-col md:flex-row gap-8 items-center relative overflow-hidden group mb-12">
         <div className="absolute top-0 right-0 p-8 opacity-5">
           <Folder size={120} className="text-gh-blue group-hover:scale-110 transition-transform duration-500" />
         </div>
@@ -133,6 +135,7 @@ function FeaturedProjectCard({ project }: { project: typeof PROJECTS[0] }) {
           </ul>
         </div>
       </div>
+      </TiltCard>
     </FadeIn>
   );
 }
@@ -142,7 +145,8 @@ function ExpandableProjectCard({ project }: { project: typeof PROJECTS[0] }) {
 
   return (
     <FadeIn>
-      <div className="card-base card-hover p-6 flex flex-col h-full group">
+      <TiltCard className="h-full">
+        <div className="card-base card-hover p-6 flex flex-col h-full group">
         <div className="flex justify-between items-center mb-6">
           <Folder size={40} className="text-gh-blue" />
           <a 
@@ -193,6 +197,7 @@ function ExpandableProjectCard({ project }: { project: typeof PROJECTS[0] }) {
           </button>
         </div>
       </div>
+      </TiltCard>
     </FadeIn>
   );
 }
@@ -221,7 +226,7 @@ export function Projects() {
           <h3 className="text-2xl font-bold text-gh-text mb-8">Other Noteworthy Projects</h3>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
           {regularProjects.map((project, index) => (
             <ExpandableProjectCard key={index} project={project} />
           ))}
