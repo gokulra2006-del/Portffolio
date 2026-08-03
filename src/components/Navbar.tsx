@@ -55,18 +55,9 @@ export function Navbar() {
         >
           <a
             href="#hero"
-            className="flex items-center gap-2 text-lg font-bold cursor-pointer text-white hover:opacity-80 transition-opacity mr-8 font-mono"
+            className="text-lg font-bold cursor-pointer text-white hover:text-gh-blue transition-colors mr-8 font-mono"
           >
-            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M 13 4 H 26 L 17 14 H 27 L 11 28 L 16 17 H 5 L 13 4 Z" fill="url(#logo-gradient)" />
-              <defs>
-                <linearGradient id="logo-gradient" x1="5" y1="4" x2="27" y2="28" gradientUnits="userSpaceOnUse">
-                  <stop stopColor="#a855f7" />
-                  <stop offset="1" stopColor="#3b82f6" />
-                </linearGradient>
-              </defs>
-            </svg>
-            <span>GR</span>
+            GR
           </a>
 
           {/* Desktop Nav */}
