@@ -87,7 +87,7 @@ export function Navbar() {
               </a>
             ))}
             <a
-              href="/resume.pdf"
+              href="/Gokul_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="ml-4 text-sm font-medium text-black bg-white hover:bg-gray-200 transition-colors px-4 py-2 rounded-lg"
@@ -131,7 +131,7 @@ export function Navbar() {
               </a>
             ))}
             <a
-              href="/resume.pdf"
+              href="/Gokul_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="mt-2 text-center text-sm font-medium text-black bg-white hover:bg-gray-200 transition-colors py-3 rounded-xl"

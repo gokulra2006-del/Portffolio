@@ -38,7 +38,7 @@ export function Hero() {
         <FadeIn>
           <div className="flex flex-wrap items-center gap-4 mt-6">
             <a
-              href="/resume.pdf"
+              href="/Gokul_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary flex items-center gap-2"

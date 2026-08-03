@@ -118,7 +118,7 @@ export function CommandPalette() {
                     <FaLinkedin size={16} /> LinkedIn
                   </Command.Item>
                   <Command.Item 
-                    onSelect={() => runCommand(() => window.open('/resume.pdf', '_blank'))}
+                    onSelect={() => runCommand(() => window.open('/Gokul_Resume.pdf', '_blank'))}
                     className="flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer aria-selected:bg-gh-blue/10 aria-selected:text-gh-blue hover:bg-gh-blue/10 hover:text-gh-blue text-sm text-gh-text font-normal transition-colors"
                   >
                     <FileText size={16} /> Download Resume
