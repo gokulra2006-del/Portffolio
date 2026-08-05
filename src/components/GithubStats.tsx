@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { FaGithub, FaStar, FaCodeBranch } from 'react-icons/fa';
-import GitHubCalendar from 'react-github-calendar';
+import { GitHubCalendar } from 'react-github-calendar';
 
 interface Stats {
   stars: number;

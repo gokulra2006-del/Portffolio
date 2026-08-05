@@ -1,5 +1,5 @@
 import { useCallback } from "react";
-import Particles from "@tsparticles/react";
+import Particles, { ParticlesProvider } from "@tsparticles/react";
 import type { Container, Engine } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 
@@ -14,10 +14,10 @@ export function ParticleBackground() {
   }, []);
 
   return (
-    <Particles
-      id="tsparticles"
-      init={particlesInit}
-      loaded={particlesLoaded}
+    <ParticlesProvider init={particlesInit}>
+      <Particles
+        id="tsparticles"
+        particlesLoaded={particlesLoaded}
       options={{
         background: {
           color: {
@@ -77,7 +77,8 @@ export function ParticleBackground() {
         },
         detectRetina: true,
       }}
-      className="absolute inset-0 z-0 pointer-events-auto"
-    />
+        className="absolute inset-0 z-0 pointer-events-auto"
+      />
+    </ParticlesProvider>
   );
 }

@@ -16,8 +16,7 @@ const PROJECTS = [
       problem: 'Traditional learning platforms provide a one-size-fits-all experience, leaving students without personalized guidance.',
       approach: 'Integrated "Friday AI", an LLM-backed assistant that uses Retrieval-Augmented Generation (RAG) to answer course-specific queries.',
       architecture: 'React frontend, Node.js backend, Vector database for embeddings, and OpenAI API.',
-      challenges: 'Minimizing LLM hallucinations and reducing response latency below 800ms.',
-      outcomes: 'Processed over 5,000 queries with a 95% satisfaction rate.'
+      outcomes: 'Currently in active development, focusing on integrating RAG capabilities into a functional MVP.'
     }
   },
   {
@@ -30,8 +29,7 @@ const PROJECTS = [
       problem: 'Signature-based Intrusion Detection Systems (IDS) struggle to identify zero-day network threats.',
       approach: 'Developed an unsupervised machine learning model to cluster and flag anomalous network traffic in real-time.',
       architecture: 'Python for model training/inference, TypeScript for the real-time dashboard visualization.',
-      challenges: 'Handling high-throughput packet data without dropping frames.',
-      outcomes: 'Achieved a 92% anomaly detection accuracy on test datasets.'
+      outcomes: 'Currently in active development, focusing on building and evaluating the initial machine learning prototype.'
     }
   },
   {
@@ -44,8 +42,7 @@ const PROJECTS = [
       problem: 'Critical system alerts were getting lost or delayed during traffic spikes.',
       approach: 'Built a highly-available distributed queuing system to reliably process and route notifications.',
       architecture: 'Node.js worker pool, Redis for distributed queuing and rate-limiting, WebSockets for real-time client delivery.',
-      challenges: 'Ensuring exactly-once delivery semantics across distributed nodes.',
-      outcomes: 'System can sustain 10k+ events/sec with sub-50ms p99 latency.'
+      outcomes: 'Currently in active development, focusing on building a reliable distributed queuing system.'
     }
   },
   {
@@ -58,8 +55,7 @@ const PROJECTS = [
       problem: 'Manual code reviews are time-consuming and prone to missing subtle security flaws.',
       approach: 'Automated the PR review process using static analysis combined with AI-driven contextual feedback.',
       architecture: 'JavaScript, OpenAI API, and a secure Dockerized sandbox for executing untrusted code snippets.',
-      challenges: 'Safely executing untrusted user code without compromising host systems.',
-      outcomes: 'Reduced average initial review cycle time by 60%.'
+      outcomes: 'Currently in active development, focusing on building a functional proof-of-concept for automated review workflows.'
     }
   },
   {
@@ -72,8 +68,7 @@ const PROJECTS = [
       problem: 'A local organic business needed an end-to-end digital storefront with seamless payment integration.',
       approach: 'Built a full MERN stack application with custom state management for the shopping cart.',
       architecture: 'MongoDB, Express, React, Node.js, Stripe API.',
-      challenges: 'Managing complex cart state and securely integrating payment gateways.',
-      outcomes: 'Handled complete checkout flows safely with JWT-based authentication.'
+      outcomes: 'Currently in active development, focusing on building the core shopping cart and checkout flows.'
     }
   },
   {
@@ -86,8 +81,7 @@ const PROJECTS = [
       problem: 'A logistics startup\'s legacy site had high bounce rates and poor mobile performance.',
       approach: 'Redesigned from the ground up focusing on Core Web Vitals and conversion optimization.',
       architecture: 'Pure HTML/CSS/JS (zero heavy frameworks) to guarantee maximum performance.',
-      challenges: 'Achieving perfect performance scores while maintaining rich visual assets.',
-      outcomes: 'Scored 100 on Lighthouse Performance and Accessibility metrics.'
+      outcomes: 'Currently in active development, focusing on achieving high performance and excellent Lighthouse scores.'
     }
   },
 ];

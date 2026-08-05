@@ -1,4 +1,3 @@
-import { lazy, Suspense } from 'react';
 import { Section } from '../components/Section';
 import { FadeIn, FadeInStagger } from '../components/FadeIn';
 import { Terminal } from '../components/Terminal';
