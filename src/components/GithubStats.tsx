@@ -1,11 +1,10 @@
 import { useEffect, useState } from 'react';
-import { FaGithub, FaStar, FaCodeBranch } from 'react-icons/fa';
+import { FaStar, FaCodeBranch } from 'react-icons/fa';
 import { GitHubCalendar } from 'react-github-calendar';
 
 interface Stats {
   stars: number;
   repos: number;
-  followers: number;
 }
 
 export function GithubStats() {
@@ -40,7 +39,6 @@ export function GithubStats() {
           const newStats = {
             stars: totalStars,
             repos: user.public_repos,
-            followers: user.followers
           };
 
           setStats(newStats);
@@ -75,11 +73,6 @@ export function GithubStats() {
           <FaCodeBranch className="text-gh-blue mb-1" size={20} />
           <span className="font-bold text-gh-text text-lg">{stats.repos}</span>
           <span className="text-xs text-gh-text-muted">Repos</span>
-        </div>
-        <div className="flex flex-col items-center justify-center p-2 bg-gh-bg rounded-lg flex-1">
-          <FaGithub className="text-gh-text mb-1" size={20} />
-          <span className="font-bold text-gh-text text-lg">{stats.followers}</span>
-          <span className="text-xs text-gh-text-muted">Followers</span>
         </div>
       </div>
 

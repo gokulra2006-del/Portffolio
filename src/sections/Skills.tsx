@@ -22,15 +22,8 @@ const SKILL_CATEGORIES = [
 
 export function Skills() {
   return (
-    <Section id="skills">
+    <Section id="skills" title="Technical Skills & Impact" number="04">
       <FadeInStagger>
-        <FadeIn>
-          <h2 className="text-3xl md:text-4xl font-bold text-gh-text mb-12 flex items-center gap-4">
-            <span className="text-gh-blue">03.</span> Technical Skills & Impact
-            <div className="h-px bg-gh-border flex-grow ml-4 max-w-[200px]"></div>
-          </h2>
-        </FadeIn>
-
         <FadeIn>
           <div className="mb-12 bg-gh-blue/5 border border-gh-blue/20 rounded-xl p-6 text-gh-text-muted leading-relaxed">
             <h3 className="text-gh-text font-bold text-lg mb-4">Engineering Impact</h3>
@@ -64,3 +57,4 @@ export function Skills() {
     </Section>
   );
 }
+

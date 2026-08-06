@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, Sun, Moon } from 'lucide-react';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
+import { useTheme } from '../context/ThemeContext';
 
 const NAV_ITEMS = [
   { name: 'About', to: 'about' },
+  { name: 'Experience', to: 'experience' },
   { name: 'Projects', to: 'projects' },
   { name: 'Skills', to: 'skills' },
   { name: 'Contact', to: 'contact' },
@@ -13,6 +15,19 @@ export function Navbar() {
   const [activeSection, setActiveSection] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const { theme, toggleTheme } = useTheme();
+
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    if (latest > previous && latest > 150) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +45,7 @@ export function Navbar() {
         }
       }
 
-      if (window.scrollY < 400) {
+      if (window.scrollY < 300) {
         current = ''; // Hero section
       }
       setActiveSection(current);
@@ -40,22 +55,44 @@ export function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+    const element = document.getElementById(targetId);
+    if (element) {
+      const offset = 90;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <>
       <div className="fixed top-6 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
         <motion.nav
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          variants={{
+            visible: { y: 0, opacity: 1 },
+            hidden: { y: -120, opacity: 0 }
+          }}
+          animate={hidden ? "hidden" : "visible"}
+          transition={{ duration: 0.35, ease: 'easeInOut' }}
           className={`pointer-events-auto flex items-center justify-between px-6 py-2 rounded-2xl transition-all duration-300 ${
             isScrolled
-              ? 'bg-[#0d1117]/70 backdrop-blur-lg border border-white/10 shadow-2xl'
+              ? 'bg-gh-bg/80 backdrop-blur-lg border border-gh-border shadow-2xl'
               : 'bg-transparent'
           }`}
         >
           <a
             href="#hero"
-            className="text-lg font-bold cursor-pointer text-white hover:text-gh-blue transition-colors mr-8 font-mono"
+            onClick={(e) => handleNavClick(e, 'hero')}
+            className="text-lg font-bold cursor-pointer text-gh-text hover:text-gh-blue transition-colors mr-8 font-mono"
           >
             GR
           </a>
@@ -66,13 +103,14 @@ export function Navbar() {
               <a
                 key={item.name}
                 href={`#${item.to}`}
+                onClick={(e) => handleNavClick(e, item.to)}
                 className="relative px-4 py-2 text-sm font-medium transition-colors cursor-pointer group"
               >
                 <span
                   className={`relative z-10 transition-colors ${
                     activeSection === item.to
-                      ? 'text-white'
-                      : 'text-gray-400 group-hover:text-white'
+                      ? 'text-gh-blue font-semibold'
+                      : 'text-gh-text-muted group-hover:text-gh-text'
                   }`}
                 >
                   {item.name}
@@ -80,29 +118,49 @@ export function Navbar() {
                 {activeSection === item.to && (
                   <motion.div
                     layoutId="navbar-indicator"
-                    className="absolute inset-0 bg-white/10 rounded-lg"
+                    className="absolute inset-0 bg-gh-blue/10 rounded-lg"
                     transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                   />
                 )}
               </a>
             ))}
+
+            <button
+              onClick={toggleTheme}
+              className="ml-2 p-2 rounded-lg text-gh-text-muted hover:text-gh-text hover:bg-gh-border/30 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+
             <a
               href="/Gokul_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="ml-4 text-sm font-medium text-black bg-white hover:bg-gray-200 transition-colors px-4 py-2 rounded-lg"
+              className="ml-4 text-sm font-medium text-gh-bg bg-gh-text hover:opacity-90 transition-colors px-4 py-2 rounded-lg"
             >
               Resume
             </a>
           </div>
 
           {/* Mobile Nav Toggle */}
-          <button
-            className="md:hidden text-white ml-8 p-1 rounded-md hover:bg-white/10 transition-colors"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
+          <div className="flex items-center gap-2 md:hidden">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg text-gh-text-muted hover:text-gh-text transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+
+            <button
+              className="text-gh-text ml-4 p-1 rounded-md hover:bg-gh-border/30 transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle navigation menu"
+            >
+              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </motion.nav>
       </div>
 
@@ -114,17 +172,17 @@ export function Navbar() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -10, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed top-24 left-4 right-4 z-40 bg-[#0d1117]/95 backdrop-blur-xl border border-white/10 rounded-2xl p-4 flex flex-col gap-2 shadow-2xl md:hidden"
+            className="fixed top-24 left-4 right-4 z-40 bg-gh-bg-secondary/95 backdrop-blur-xl border border-gh-border rounded-2xl p-4 flex flex-col gap-2 shadow-2xl md:hidden"
           >
             {NAV_ITEMS.map((item) => (
               <a
                 key={item.name}
                 href={`#${item.to}`}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => handleNavClick(e, item.to)}
                 className={`text-sm font-medium cursor-pointer transition-colors py-3 px-4 rounded-xl ${
                   activeSection === item.to
-                    ? 'bg-white/10 text-white'
-                    : 'text-gray-400 hover:text-white hover:bg-white/5'
+                    ? 'bg-gh-blue/10 text-gh-blue font-semibold'
+                    : 'text-gh-text-muted hover:text-gh-text hover:bg-gh-border/20'
                 }`}
               >
                 {item.name}
@@ -134,7 +192,7 @@ export function Navbar() {
               href="/Gokul_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 text-center text-sm font-medium text-black bg-white hover:bg-gray-200 transition-colors py-3 rounded-xl"
+              className="mt-2 text-center text-sm font-medium text-gh-bg bg-gh-text hover:opacity-90 transition-colors py-3 rounded-xl"
             >
               Download Resume
             </a>
@@ -144,3 +202,5 @@ export function Navbar() {
     </>
   );
 }
+
+

@@ -5,6 +5,7 @@ import { Section } from '../components/Section';
 import { FadeIn, FadeInStagger } from '../components/FadeIn';
 import { ParticleBackground } from '../components/ParticleBackground';
 import { Typewriter } from '../components/Typewriter';
+import { Magnetic } from '../components/Magnetic';
 
 export function Hero() {
   return (
@@ -37,28 +38,36 @@ export function Hero() {
         
         <FadeIn>
           <div className="flex flex-wrap items-center gap-4 mt-6">
-            <a
-              href="/Gokul_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary flex items-center gap-2"
-            >
-              <FileText size={20} />
-              Download Resume
-            </a>
+            <Magnetic strength={0.2}>
+              <a
+                href="/Gokul_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary flex items-center gap-2"
+              >
+                <FileText size={20} />
+                Download Resume
+              </a>
+            </Magnetic>
             <div className="flex items-center gap-4 ml-2">
-              <a href="https://github.com/gokulra2006-del?tab=repositories" target="_blank" rel="noopener noreferrer" className="text-gh-text-muted hover:text-gh-blue transition-colors">
-                <FaGithub size={24} />
-                <span className="sr-only">GitHub</span>
-              </a>
-              <a href="https://www.linkedin.com/in/gokul-r-513299327/" target="_blank" rel="noopener noreferrer" className="text-gh-text-muted hover:text-gh-blue transition-colors">
-                <FaLinkedin size={24} />
-                <span className="sr-only">LinkedIn</span>
-              </a>
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gokulra2006@gmail.com" target="_blank" rel="noopener noreferrer" className="text-gh-text-muted hover:text-gh-blue transition-colors">
-                <SiGmail size={24} />
-                <span className="sr-only">Email</span>
-              </a>
+              <Magnetic strength={0.4}>
+                <a href="https://github.com/gokulra2006-del?tab=repositories" target="_blank" rel="noopener noreferrer" className="text-gh-text-muted hover:text-gh-blue transition-colors block p-2">
+                  <FaGithub size={24} />
+                  <span className="sr-only">GitHub</span>
+                </a>
+              </Magnetic>
+              <Magnetic strength={0.4}>
+                <a href="https://www.linkedin.com/in/gokul-r-513299327/" target="_blank" rel="noopener noreferrer" className="text-gh-text-muted hover:text-gh-blue transition-colors block p-2">
+                  <FaLinkedin size={24} />
+                  <span className="sr-only">LinkedIn</span>
+                </a>
+              </Magnetic>
+              <Magnetic strength={0.4}>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=gokulra2006@gmail.com" target="_blank" rel="noopener noreferrer" className="text-gh-text-muted hover:text-gh-blue transition-colors block p-2">
+                  <SiGmail size={24} />
+                  <span className="sr-only">Email</span>
+                </a>
+              </Magnetic>
             </div>
           </div>
         </FadeIn>
@@ -66,3 +75,4 @@ export function Hero() {
     </Section>
   );
 }
+

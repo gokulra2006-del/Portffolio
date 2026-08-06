@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
-@theme {
+:root {
+
   --color-gh-bg: #0d1117;
   --color-gh-bg-secondary: #161b22;
   --color-gh-border: #30363d;
@@ -11,9 +12,34 @@
   --color-gh-blue-hover: #79c0ff;
   --color-gh-purple: #bc8cff;
   --color-gh-purple-hover: #d2a8ff;
+}
+
+html.light {
+  --color-gh-bg: #ffffff;
+  --color-gh-bg-secondary: #f6f8fa;
+  --color-gh-border: #d0d7de;
+  --color-gh-text: #1f2328;
+  --color-gh-text-muted: #656d76;
+  --color-gh-blue: #0969da;
+  --color-gh-blue-hover: #0550ae;
+  --color-gh-purple: #8250df;
+  --color-gh-purple-hover: #6639ba;
+}
+
+@theme {
+  --color-gh-bg: var(--color-gh-bg);
+  --color-gh-bg-secondary: var(--color-gh-bg-secondary);
+  --color-gh-border: var(--color-gh-border);
+  --color-gh-text: var(--color-gh-text);
+  --color-gh-text-muted: var(--color-gh-text-muted);
+  --color-gh-blue: var(--color-gh-blue);
+  --color-gh-blue-hover: var(--color-gh-blue-hover);
+  --color-gh-purple: var(--color-gh-purple);
+  --color-gh-purple-hover: var(--color-gh-purple-hover);
 
   --font-sans: 'Inter', sans-serif;
 }
+
 
 @layer base {
   body {
@@ -64,6 +90,19 @@
   }
 }
 
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
 @keyframes gradient-xy {
   0% {
     background-position: 0% 0%;
@@ -82,3 +121,4 @@
   background-size: 200% 200%;
   animation: gradient-xy 15s ease infinite;
 }
+
