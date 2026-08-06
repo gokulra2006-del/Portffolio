@@ -3,21 +3,12 @@ import { X } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 
 
+import type { Project } from '../data/projectsData';
+
 interface CaseStudyModalProps {
   isOpen: boolean;
   onClose: () => void;
-  project: {
-    title: string;
-    description: string;
-    tech: string[];
-    github: string;
-    caseStudy: {
-      problem: string;
-      approach: string;
-      architecture: string;
-      outcomes: string;
-    };
-  };
+  project: Project;
 }
 
 export function CaseStudyModal({ isOpen, onClose, project }: CaseStudyModalProps) {

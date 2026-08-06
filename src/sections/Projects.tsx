@@ -7,9 +7,9 @@ import { FadeIn, FadeInStagger } from '../components/FadeIn';
 import { TiltCard } from '../components/TiltCard';
 import { useGitHubStats } from '../hooks/useGitHubStats';
 import { CaseStudyModal } from '../components/CaseStudyModal';
-import { PROJECTS } from '../data/projectsData';
+import { PROJECTS, type Project } from '../data/projectsData';
 
-function FeaturedProjectCard({ project, onOpenModal }: { project: typeof PROJECTS[0]; onOpenModal: () => void }) {
+function FeaturedProjectCard({ project, onOpenModal }: { project: Project; onOpenModal: () => void }) {
   const { stats } = useGitHubStats(project.github);
 
   return (
@@ -94,7 +94,7 @@ function FeaturedProjectCard({ project, onOpenModal }: { project: typeof PROJECT
   );
 }
 
-function ExpandableProjectCard({ project, onOpenModal }: { project: typeof PROJECTS[0]; onOpenModal: () => void }) {
+function ExpandableProjectCard({ project, onOpenModal }: { project: Project; onOpenModal: () => void }) {
   const { stats } = useGitHubStats(project.github);
 
   return (
@@ -169,7 +169,7 @@ function ExpandableProjectCard({ project, onOpenModal }: { project: typeof PROJE
 }
 
 export function Projects() {
-  const [selectedProject, setSelectedProject] = useState<typeof PROJECTS[0] | null>(null);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const featuredProjects = PROJECTS.filter((p) => p.featured);
   const regularProjects = PROJECTS.filter((p) => !p.featured);

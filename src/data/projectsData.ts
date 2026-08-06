@@ -1,4 +1,19 @@
-export const PROJECTS = [
+export interface Project {
+  title: string;
+  featured: boolean;
+  description: string;
+  tech: string[];
+  github: string;
+  live?: string;
+  caseStudy: {
+    problem: string;
+    approach: string;
+    architecture: string;
+    outcomes: string;
+  };
+}
+
+export const PROJECTS: Project[] = [
   {
     title: 'Ai-Learning-Platform',
     featured: true,
