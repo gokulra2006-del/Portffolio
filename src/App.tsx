@@ -3,6 +3,7 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 import { Helmet } from 'react-helmet-async';
 import { Toaster } from 'sonner';
 import { ThemeProvider } from "./context/ThemeContext";
+import { RecruiterProvider, useRecruiterMode } from "./context/RecruiterContext";
 import { useKonamiCode } from "./hooks/useKonamiCode";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { Navbar } from "./components/Navbar";
@@ -10,15 +11,15 @@ import { CommandPalette } from "./components/CommandPalette";
 import { Footer } from "./components/Footer";
 import { SpotlightCursor } from "./components/SpotlightCursor";
 import { Hero } from "./sections/Hero";
+import { ProofStrip } from "./components/ProofStrip";
 import { About } from "./sections/About";
 import { Experience } from "./sections/Experience";
 import { Projects } from "./sections/Projects";
 import { Skills } from "./sections/Skills";
 import { Contact } from "./sections/Contact";
 import { ProjectArchive } from "./pages/ProjectArchive";
+import { ResumePage } from "./pages/ResumePage";
 import { NotFound } from "./pages/NotFound";
-
-import { Testimonials } from "./sections/Testimonials";
 
 function MainSite() {
   const { scrollYProgress } = useScroll();
@@ -27,6 +28,7 @@ function MainSite() {
     damping: 30,
     restDelta: 0.001
   });
+  const { isRecruiterMode, toggleRecruiterMode } = useRecruiterMode();
 
   return (
     <>
@@ -35,20 +37,33 @@ function MainSite() {
         style={{ scaleX }}
       />
       <Navbar />
+      {isRecruiterMode && (
+        <div className="w-full bg-amber-500/15 border-b border-amber-500/30 pt-20 pb-2.5 px-4 text-xs font-mono text-amber-300 relative z-30">
+          <div className="flex flex-wrap items-center justify-between gap-2 max-w-5xl mx-auto">
+            <span>⚡ <strong>Recruiter View Active:</strong> Concise 2-screen engineering qualifications and direct project artifacts.</span>
+            <button
+              type="button"
+              onClick={toggleRecruiterMode}
+              className="underline hover:text-amber-100 font-semibold cursor-pointer"
+            >
+              Exit Recruiter View (Show Full Site)
+            </button>
+          </div>
+        </div>
+      )}
       <main id="main-content" className="relative z-10 flex flex-col items-center w-full">
         <Hero />
-        <About />
-        <Experience />
+        <ProofStrip />
+        {!isRecruiterMode && <About />}
         <Projects />
         <Skills />
-        <Testimonials />
+        <Experience />
         <Contact />
       </main>
       <Footer />
     </>
   );
 }
-
 
 function AppContent() {
   useKonamiCode();
@@ -58,13 +73,16 @@ function AppContent() {
     '@type': 'Person',
     name: 'Gokul Ramachandran',
     url: 'https://gokulramachandran.com',
-    jobTitle: 'Software Engineer & AI Developer',
-    almaMater: 'VIT Chennai',
+    jobTitle: 'Junior Full-Stack Engineer',
+    alumniOf: {
+      '@type': 'CollegeOrUniversity',
+      name: 'VIT Chennai',
+    },
     sameAs: [
       'https://github.com/gokulra2006-del',
       'https://www.linkedin.com/in/gokul-r-513299327/',
     ],
-    knowsAbout: ['React', 'TypeScript', 'Node.js', 'Python', 'Machine Learning', 'Cybersecurity', 'Cloud Computing'],
+    knowsAbout: ['TypeScript', 'React', 'Node.js', 'Express', 'Python', 'C#', '.NET 8', 'MongoDB', 'REST APIs', 'LLMs'],
   };
 
   const websiteSchema = {
@@ -78,13 +96,19 @@ function AppContent() {
     <div className="relative min-h-screen bg-gh-bg text-gh-text selection:bg-gh-blue/30 selection:text-gh-blue overflow-x-hidden cursor-default transition-colors duration-300">
       <SpotlightCursor />
       <Helmet>
-        <title>Gokul Ramachandran | Software Engineer & AI Developer</title>
-        <meta name="description" content="Portfolio of Gokul Ramachandran, a Software Engineer and AI/Full-Stack Developer building scalable web applications and AI-driven platforms." />
+        <title>Gokul Ramachandran | Junior Full-Stack Engineer (AI Systems Focus)</title>
+        <meta
+          name="description"
+          content="Junior Full-Stack Engineer building reliable web products and practical AI systems from API design to polished user experience."
+        />
         <link rel="canonical" href="https://gokulramachandran.com/" />
-        
+
         {/* OpenGraph Meta */}
-        <meta property="og:title" content="Gokul Ramachandran | Software Engineer & AI Developer" />
-        <meta property="og:description" content="Software Engineer & AI Developer building scalable web applications, RAG agents, and cloud platforms." />
+        <meta property="og:title" content="Gokul Ramachandran | Junior Full-Stack Engineer" />
+        <meta
+          property="og:description"
+          content="Junior Full-Stack Engineer building reliable web products and practical AI systems from API design to polished user experience."
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://gokulramachandran.com/" />
         <meta property="og:image" content="https://gokulramachandran.com/og.png" />
@@ -93,8 +117,11 @@ function AppContent() {
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Gokul Ramachandran | Software Engineer & AI Developer" />
-        <meta name="twitter:description" content="Software Engineer & AI Developer building scalable web applications, RAG agents, and cloud platforms." />
+        <meta name="twitter:title" content="Gokul Ramachandran | Junior Full-Stack Engineer" />
+        <meta
+          name="twitter:description"
+          content="Junior Full-Stack Engineer building reliable web products and practical AI systems from API design to polished user experience."
+        />
         <meta name="twitter:image" content="https://gokulramachandran.com/og.png" />
 
         {/* Structured Data */}
@@ -104,7 +131,9 @@ function AppContent() {
 
       <Routes>
         <Route path="/" element={<MainSite />} />
+        <Route path="/projects" element={<ProjectArchive />} />
         <Route path="/archive" element={<ProjectArchive />} />
+        <Route path="/resume" element={<ResumePage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
 
@@ -113,7 +142,6 @@ function AppContent() {
     </div>
   );
 }
-
 
 function App() {
   return (
@@ -131,15 +159,14 @@ function App() {
       }
     >
       <ThemeProvider>
-        <BrowserRouter>
-          <AppContent />
-        </BrowserRouter>
+        <RecruiterProvider>
+          <BrowserRouter>
+            <AppContent />
+          </BrowserRouter>
+        </RecruiterProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );
 }
 
 export default App;
-
-
-

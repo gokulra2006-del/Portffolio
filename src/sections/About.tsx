@@ -1,159 +1,151 @@
-import { useState, useEffect } from 'react';
 import { Section } from '../components/Section';
 import { FadeIn, FadeInStagger } from '../components/FadeIn';
 import { GithubStats } from '../components/GithubStats';
-import { MapPin, Clock, GraduationCap, Flame, Code2 } from 'lucide-react';
-import { SiReact, SiTypescript, SiPython, SiNodedotjs, SiMongodb, SiRedis, SiDocker, SiFirebase, SiTailwindcss, SiGit } from 'react-icons/si';
-
-const TECH_TOOLS = [
-  { name: 'TypeScript', icon: SiTypescript, color: 'text-blue-400' },
-  { name: 'React', icon: SiReact, color: 'text-cyan-400' },
-  { name: 'Python', icon: SiPython, color: 'text-yellow-400' },
-  { name: 'Node.js', icon: SiNodedotjs, color: 'text-green-400' },
-  { name: 'MongoDB', icon: SiMongodb, color: 'text-emerald-400' },
-  { name: 'Redis', icon: SiRedis, color: 'text-red-400' },
-  { name: 'Docker', icon: SiDocker, color: 'text-blue-500' },
-  { name: 'Firebase', icon: SiFirebase, color: 'text-amber-400' },
-  { name: 'Tailwind CSS', icon: SiTailwindcss, color: 'text-teal-400' },
-  { name: 'Git', icon: SiGit, color: 'text-orange-400' },
-];
+import { Terminal } from '../components/Terminal';
+import { ShieldCheck, Flame, Code2, Compass, Target, MapPin } from 'lucide-react';
 
 export function About() {
-  const [localTime, setLocalTime] = useState('');
-
-  useEffect(() => {
-    const updateTime = () => {
-      const time = new Date().toLocaleTimeString('en-US', {
-        timeZone: 'Asia/Kolkata',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: true,
-      });
-      setLocalTime(time);
-    };
-
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <Section id="about" title="About Me" number="01">
+    <Section id="about" title="About" number="01">
       <FadeInStagger>
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          
-          {/* Bio Card (2 columns, 2 rows) */}
-          <FadeIn className="md:col-span-2 lg:col-span-2">
-            <div className="card-base p-6 md:p-8 h-full flex flex-col justify-between">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {/* Bio & Philosophy Card (2 cols) */}
+          <FadeIn className="md:col-span-2">
+            <div className="card-base p-6 sm:p-8 h-full flex flex-col justify-between">
               <div>
-                <h3 className="text-xl font-bold text-gh-text mb-4 flex items-center gap-2">
-                  <Code2 className="text-gh-blue" size={22} />
-                  Hi, I'm Gokul
+                <div className="flex items-center gap-2 mb-4 text-gh-blue font-semibold">
+                  <Code2 size={20} />
+                  <span className="text-sm font-mono uppercase tracking-wider">Engineering Background</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-gh-text mb-4">
+                  Full-stack engineering grounded in systems and applied AI.
                 </h3>
-                <p className="text-gh-text-muted text-sm md:text-base leading-relaxed mb-4">
-                  B.Tech Computer Science student at VIT Chennai passionate about engineering high-performance web systems and AI integrations.
+                <p className="text-gh-text-muted text-sm sm:text-base leading-relaxed mb-4">
+                  I am a Computer Science & Engineering student at <strong className="text-gh-text font-medium">VIT Chennai</strong> (Class of 2027). I focus on building reliable software across the stack: architecting typed REST APIs, implementing deterministic data models, and delivering accessible, responsive user interfaces.
                 </p>
-                <p className="text-gh-text-muted text-sm md:text-base leading-relaxed">
-                  I enjoy architecting robust backend APIs, fine-tuning LLM agent workflows using RAG, and creating slick developer-first user interfaces. Recently won <span className="text-gh-blue font-medium">2nd Place at Hackwarts Hackathon</span>.
+                <p className="text-gh-text-muted text-sm sm:text-base leading-relaxed">
+                  Beyond web applications, I explore systems-level challenges like low-latency audio capture with Windows WASAPI and applied LLM workflows using structured output validation and model gateway routing.
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-gh-border/50 flex flex-wrap gap-2 text-xs font-mono text-gh-blue">
-                <span>#FullStack</span>
-                <span>#AI-ML</span>
-                <span>#Cloud</span>
-                <span>#Cybersecurity</span>
+
+              <div className="mt-6 pt-4 border-t border-gh-border/50 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-gh-text-muted">
+                <span className="flex items-center gap-1.5 text-gh-text">
+                  <MapPin size={14} className="text-gh-blue" /> Chennai, India • Open to remote & on-site
+                </span>
+                <span className="text-gh-blue font-semibold">Available for 2025/2026 roles</span>
               </div>
             </div>
           </FadeIn>
 
-          {/* Location & Timezone Clock Card */}
-          <FadeIn className="md:col-span-1 lg:col-span-2">
-            <div className="card-base p-6 h-full flex flex-col justify-between bg-gradient-to-br from-gh-bg-secondary to-gh-blue/5">
+          {/* Engineering Standards Card */}
+          <FadeIn>
+            <div className="card-base p-6 h-full flex flex-col justify-between bg-gh-bg-secondary/60">
               <div>
-                <div className="flex justify-between items-center mb-4">
-                  <span className="text-xs font-mono text-gh-blue uppercase tracking-wider flex items-center gap-1.5">
-                    <MapPin size={14} /> Location & Timezone
-                  </span>
-                  <span className="flex h-2.5 w-2.5 relative">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
-                  </span>
-                </div>
-                <h4 className="text-xl font-bold text-gh-text mb-1">Chennai, India</h4>
-                <p className="text-xs text-gh-text-muted font-mono mb-4">IST (UTC +5:30)</p>
-              </div>
-
-              <div className="bg-gh-bg/70 p-4 rounded-xl border border-gh-border/60 font-mono text-center">
-                <p className="text-xs text-gh-text-muted mb-1 flex items-center justify-center gap-1.5">
-                  <Clock size={14} className="text-gh-blue" /> Local Time
-                </p>
-                <p className="text-2xl font-bold text-gh-text">{localTime || '12:00:00 PM'}</p>
-              </div>
-            </div>
-          </FadeIn>
-
-          {/* Tech Stack Infinite Marquee Card */}
-          <FadeIn className="md:col-span-3 lg:col-span-4">
-            <div className="card-base p-6 overflow-hidden">
-              <h4 className="text-xs font-mono text-gh-text-muted uppercase tracking-wider mb-4">
-                Core Technologies & Tools
-              </h4>
-              <div className="relative flex overflow-x-hidden group">
-                <div className="animate-marquee flex items-center gap-8 whitespace-nowrap group-hover:[animation-play-state:paused]">
-                  {TECH_TOOLS.concat(TECH_TOOLS).map((tool, index) => {
-                    const Icon = tool.icon;
-                    return (
-                      <div
-                        key={index}
-                        className="flex items-center gap-2 px-4 py-2 bg-gh-bg border border-gh-border/60 rounded-xl shrink-0"
-                      >
-                        <Icon size={18} className={tool.color} />
-                        <span className="text-sm font-medium text-gh-text">{tool.name}</span>
-                      </div>
-                    );
-                  })}
-                </div>
+                <span className="text-xs font-mono text-gh-blue uppercase tracking-wider flex items-center gap-1.5 mb-3">
+                  <ShieldCheck size={16} /> Engineering Standards
+                </span>
+                <h4 className="text-base font-bold text-gh-text mb-3">How I build software</h4>
+                <ul className="space-y-2.5 text-xs text-gh-text-muted">
+                  <li className="flex items-start gap-2">
+                    <span className="text-gh-blue font-bold font-mono">›</span>
+                    <span><strong className="text-gh-text">Type Safety:</strong> Strict contracts across client state, REST boundaries, and data schemas.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gh-blue font-bold font-mono">›</span>
+                    <span><strong className="text-gh-text">Defensive Design:</strong> Input sanitization, route-level RBAC, and predictable error handling.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gh-blue font-bold font-mono">›</span>
+                    <span><strong className="text-gh-text">Code Hygiene:</strong> Atomic Git commits, automated test coverage, and documented trade-offs.</span>
+                  </li>
+                </ul>
               </div>
             </div>
           </FadeIn>
 
-          {/* Education Card */}
-          <FadeIn className="md:col-span-1 lg:col-span-2">
+          {/* Engineering Interests */}
+          <FadeIn>
             <div className="card-base p-6 h-full flex flex-col justify-between">
               <div>
                 <span className="text-xs font-mono text-gh-blue uppercase tracking-wider flex items-center gap-1.5 mb-3">
-                  <GraduationCap size={16} /> Education
+                  <Compass size={16} /> Engineering Interests
                 </span>
-                <h4 className="text-lg font-bold text-gh-text">VIT Chennai</h4>
-                <p className="text-sm text-gh-text-muted">B.Tech Computer Science & Engineering</p>
+                <h4 className="text-base font-bold text-gh-text mb-3">What I enjoy building</h4>
+                <ul className="space-y-2 text-xs sm:text-sm text-gh-text-muted">
+                  <li className="flex items-start gap-2">
+                    <span className="text-gh-blue font-bold font-mono">›</span>
+                    <span><strong className="text-gh-text">API & System Design:</strong> Structured REST endpoints, RBAC middleware, and predictable data schemas.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gh-blue font-bold font-mono">›</span>
+                    <span><strong className="text-gh-text">Practical AI Systems:</strong> RAG pipelines, LLM gateway routing, and deterministic JSON schemas.</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-gh-blue font-bold font-mono">›</span>
+                    <span><strong className="text-gh-text">Media & Desktop Systems:</strong> Low-latency audio buffer routing and drift correction.</span>
+                  </li>
+                </ul>
               </div>
-              <p className="text-xs font-mono text-gh-text-muted mt-4">2023 — 2027</p>
             </div>
           </FadeIn>
 
-          {/* Currently Building Card */}
-          <FadeIn className="md:col-span-2 lg:col-span-2">
-            <div className="card-base p-6 h-full flex flex-col justify-between border-gh-blue/30 bg-gh-blue/5">
+          {/* Target Roles */}
+          <FadeIn>
+            <div className="card-base p-6 h-full flex flex-col justify-between bg-gh-blue/5 border-gh-blue/20">
+              <div>
+                <span className="text-xs font-mono text-gh-blue uppercase tracking-wider flex items-center gap-1.5 mb-3">
+                  <Target size={16} /> Target Opportunities
+                </span>
+                <h4 className="text-base font-bold text-gh-text mb-2">Roles I am seeking</h4>
+                <p className="text-xs sm:text-sm text-gh-text-muted mb-4 leading-relaxed">
+                  Seeking junior or internship engineering roles where code quality, reliable backend design, and thoughtful UX are valued:
+                </p>
+                <div className="flex flex-wrap gap-2 text-xs font-mono">
+                  <span className="badge">Junior Full-Stack Engineer</span>
+                  <span className="badge">Software Engineer Intern</span>
+                  <span className="badge">Backend Engineer (Node/Python)</span>
+                  <span className="badge">AI Application Engineer</span>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+
+          {/* Currently Building */}
+          <FadeIn>
+            <div className="card-base p-6 h-full flex flex-col justify-between border-gh-border">
               <div>
                 <span className="text-xs font-mono text-gh-blue uppercase tracking-wider flex items-center gap-1.5 mb-3">
                   <Flame size={16} className="text-amber-400" /> Currently Building
                 </span>
-                <h4 className="text-lg font-bold text-gh-text mb-2">Friday AI & Sentinel-ai</h4>
-                <p className="text-xs text-gh-text-muted leading-relaxed">
-                  Integrating Retrieval-Augmented Generation into custom learning workflows & training unsupervised machine learning models for low-latency network intrusion detection.
+                <h4 className="text-base font-bold text-gh-text mb-2">Climatic Twin & Edge AI</h4>
+                <p className="text-xs sm:text-sm text-gh-text-muted leading-relaxed">
+                  Developing an edge-focused detection pipeline for real-time anomaly analysis, paired with Climatic Twin simulations for environmental data modeling.
                 </p>
               </div>
             </div>
           </FadeIn>
 
-          {/* GitHub Stats Card */}
-          <FadeIn className="md:col-span-3 lg:col-span-4">
+          {/* GitHub Activity & Stats Card */}
+          <FadeIn className="md:col-span-2 lg:col-span-3">
             <div className="card-base p-6">
               <GithubStats />
             </div>
           </FadeIn>
 
+          {/* Interactive Developer Terminal */}
+          <FadeIn className="md:col-span-2 lg:col-span-3">
+            <div className="pt-2">
+              <div className="text-center sm:text-left mb-1">
+                <span className="text-xs font-mono text-gh-blue uppercase tracking-wider">
+                  Interactive Developer Shell
+                </span>
+                <p className="text-xs text-gh-text-muted mt-0.5">
+                  Type <code className="text-gh-blue bg-gh-blue/10 px-1 py-0.5 rounded font-mono">help</code>, <code className="text-gh-blue bg-gh-blue/10 px-1 py-0.5 rounded font-mono">projects</code>, or <code className="text-gh-blue bg-gh-blue/10 px-1 py-0.5 rounded font-mono">skills</code> in the prompt below:
+                </p>
+              </div>
+              <Terminal />
+            </div>
+          </FadeIn>
         </div>
       </FadeInStagger>
     </Section>

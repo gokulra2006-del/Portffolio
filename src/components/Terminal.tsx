@@ -15,6 +15,8 @@ const COMMANDS: Record<string, () => React.ReactNode> = {
         <li><strong className="text-gh-text font-mono">about</strong> — Brief summary about me</li>
         <li><strong className="text-gh-text font-mono">projects</strong> — View featured projects</li>
         <li><strong className="text-gh-text font-mono">skills</strong> — List technical skills</li>
+        <li><strong className="text-gh-text font-mono">experience</strong> — Work history & milestones</li>
+        <li><strong className="text-gh-text font-mono">education</strong> — Degree & university credentials</li>
         <li><strong className="text-gh-text font-mono">contact</strong> — Get contact email & links</li>
         <li><strong className="text-gh-text font-mono">resume</strong> — Download resume</li>
         <li><strong className="text-gh-text font-mono">clear</strong> — Clear terminal screen</li>
@@ -23,20 +25,34 @@ const COMMANDS: Record<string, () => React.ReactNode> = {
   ),
   about: () => (
     <p>
-      Gokul Ramachandran — B.Tech CSE student at VIT Chennai. Passionate about AI/ML integrations, Cloud Computing, Cybersecurity, and building scalable web applications.
+      Gokul Ramachandran — Junior Full-Stack Engineer and B.Tech CSE student at VIT Chennai. Building reliable web products, API architectures, and practical AI systems.
     </p>
   ),
   projects: () => (
     <ul className="list-disc list-inside space-y-1">
+      <li><strong className="text-gh-blue">AgriBank:</strong> Full-stack agriculture banking platform with ML credit-risk assessment</li>
+      <li><strong className="text-gh-blue">Dual-enjoy:</strong> Dual Bluetooth headphone synchronizer in C# / .NET 8 / WASAPI</li>
+      <li><strong className="text-gh-blue">Edge AI:</strong> Real-time low-latency anomaly and object detection platform</li>
+      <li><strong className="text-gh-blue">AI Code Review Assistant:</strong> LLM-powered code review tool via OpenRouter APIs</li>
+      <li><strong className="text-gh-blue">Organic Store:</strong> High-performance full-stack e-commerce platform</li>
       <li><strong className="text-gh-blue">Ai-Learning-Platform:</strong> RAG-based Friday AI assistant</li>
-      <li><strong className="text-gh-blue">Sentinel-ai:</strong> ML network threat detection</li>
-      <li><strong className="text-gh-blue">Alert-System:</strong> Distributed queuing service</li>
-      <li><strong className="text-gh-blue">codereview-ai:</strong> Automated code review & execution</li>
     </ul>
   ),
   skills: () => (
     <p>
-      React, TypeScript, Python, Node.js, Express, MongoDB, Redis, Docker, Firebase, Cybersecurity, Cloud Computing.
+      React, TypeScript, Python, C#, .NET 8, Node.js, Express, MongoDB, Redis, Docker, WASAPI, Machine Learning, Cloud Computing, Cybersecurity.
+    </p>
+  ),
+  experience: () => (
+    <ul className="list-disc list-inside space-y-1">
+      <li><strong className="text-gh-blue">Incrix Techlutions:</strong> Full-Stack Developer Intern (React, TypeScript, Node.js, MongoDB)</li>
+      <li><strong className="text-gh-blue">Hackwarts Hackathon:</strong> 2nd Place Finalist (RAG-based AI Learning Platform)</li>
+      <li><strong className="text-gh-blue">Open Source:</strong> Dual-enjoy audio DSP & AI Code Review tooling</li>
+    </ul>
+  ),
+  education: () => (
+    <p>
+      <strong className="text-gh-blue">Vellore Institute of Technology (VIT), Chennai</strong> — B.Tech in Computer Science & Engineering (2023 — 2027). Core curriculum: Data Structures & Algorithms, Operating Systems, Database Management Systems, Computer Networks.
     </p>
   ),
   contact: () => (
@@ -62,7 +78,7 @@ export function Terminal() {
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    bottomRef.current?.scrollIntoView?.({ behavior: 'smooth' });
   }, [history]);
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -94,8 +110,8 @@ export function Terminal() {
   };
 
   return (
-    <FadeIn>
-      <div className="w-full max-w-3xl mt-16 rounded-xl overflow-hidden border border-gh-border shadow-2xl bg-gh-bg-secondary font-mono text-sm">
+    <FadeIn className="w-full flex justify-center">
+      <div className="w-full max-w-3xl mt-4 rounded-xl overflow-hidden border border-gh-border shadow-2xl bg-gh-bg-secondary font-mono text-sm">
         {/* Terminal Header */}
         <div className="bg-gh-bg px-4 py-2.5 border-b border-gh-border flex items-center justify-between">
           <div className="flex gap-2">

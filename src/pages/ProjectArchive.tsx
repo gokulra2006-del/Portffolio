@@ -4,11 +4,14 @@ import { ArrowLeft, ExternalLink, Search, ArrowUpDown } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 
 import { ARCHIVE_PROJECTS } from '../data/projects';
+import { PROJECTS, type Project } from '../data/projectsData';
+import { CaseStudyModal } from '../components/CaseStudyModal';
 import { Helmet } from 'react-helmet-async';
 
 export function ProjectArchive() {
   const [search, setSearch] = useState('');
   const [sortAsc, setSortAsc] = useState(false);
+  const [selectedCaseStudy, setSelectedCaseStudy] = useState<Project | null>(null);
 
   const filteredProjects = useMemo(() => {
     return ARCHIVE_PROJECTS.filter((p) => {
@@ -99,6 +102,23 @@ export function ProjectArchive() {
                 </td>
                 <td className="py-4 px-6 text-right">
                   <div className="flex items-center justify-end gap-3 text-gh-text-muted">
+                    {(() => {
+                      const detailedProject = PROJECTS.find(
+                        (dp) => dp.title.toLowerCase() === project.title.toLowerCase() ||
+                                (project.github && dp.github.toLowerCase() === project.github.toLowerCase())
+                      );
+                      if (!detailedProject) return null;
+                      return (
+                        <button
+                          type="button"
+                          onClick={() => setSelectedCaseStudy(detailedProject)}
+                          className="text-xs font-mono text-gh-blue hover:underline bg-gh-blue/10 px-2 py-1 rounded border border-gh-blue/20 mr-1"
+                        >
+                          Case Study
+                        </button>
+                      );
+                    })()}
+
                     {project.github && (
                       <a
                         href={project.github}
@@ -129,6 +149,14 @@ export function ProjectArchive() {
           </tbody>
         </table>
       </div>
+
+      {selectedCaseStudy && (
+        <CaseStudyModal
+          isOpen={!!selectedCaseStudy}
+          onClose={() => setSelectedCaseStudy(null)}
+          project={selectedCaseStudy}
+        />
+      )}
     </div>
   );
 }

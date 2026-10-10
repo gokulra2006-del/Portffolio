@@ -1,20 +1,46 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 import { ThemeProvider } from '../context/ThemeContext';
+import { RecruiterProvider } from '../context/RecruiterContext';
 import { Navbar } from '../components/Navbar';
 
 describe('Navbar Component', () => {
-  it('renders the navigation links', () => {
+  it('renders all core navigation links', () => {
     render(
       <ThemeProvider>
-        <Navbar />
+        <RecruiterProvider>
+          <Navbar />
+        </RecruiterProvider>
       </ThemeProvider>
     );
 
-    // Check if navigation elements are present
-    expect(screen.getByText('About')).toBeInTheDocument();
-    expect(screen.getByText('Projects')).toBeInTheDocument();
-    expect(screen.getByText('Skills')).toBeInTheDocument();
-    expect(screen.getByText('Contact')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'About' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Projects' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Skills' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Experience' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Contact' })).toBeInTheDocument();
+  });
+
+  it('toggles mobile menu and sets accessible aria attributes', () => {
+    render(
+      <ThemeProvider>
+        <RecruiterProvider>
+          <Navbar />
+        </RecruiterProvider>
+      </ThemeProvider>
+    );
+
+    const toggleButton = screen.getByRole('button', { name: /open navigation menu/i });
+    expect(toggleButton).toHaveAttribute('aria-expanded', 'false');
+    expect(toggleButton).toHaveAttribute('aria-controls', 'mobile-navigation');
+
+    // Click to open
+    fireEvent.click(toggleButton);
+    expect(toggleButton).toHaveAttribute('aria-expanded', 'true');
+    expect(screen.getByRole('menu', { name: /mobile navigation/i })).toBeInTheDocument();
+
+    // Click to close
+    fireEvent.click(toggleButton);
+    expect(toggleButton).toHaveAttribute('aria-expanded', 'false');
   });
 });

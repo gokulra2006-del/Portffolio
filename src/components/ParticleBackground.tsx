@@ -1,9 +1,19 @@
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Particles, { ParticlesProvider } from "@tsparticles/react";
 import type { Container, Engine } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 
 export function ParticleBackground() {
+  const [enabled, setEnabled] = useState(false);
+
+  useEffect(() => {
+    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => setEnabled(!media.matches);
+    update();
+    media.addEventListener('change', update);
+    return () => media.removeEventListener('change', update);
+  }, []);
+
   const particlesInit = useCallback(async (engine: Engine) => {
     // loadSlim reduces bundle size significantly over loadFull
     await loadSlim(engine);
@@ -12,6 +22,8 @@ export function ParticleBackground() {
   const particlesLoaded = useCallback(async (container: Container | undefined) => {
     console.log("Particles loaded", container);
   }, []);
+
+  if (!enabled) return null;
 
   return (
     <ParticlesProvider init={particlesInit}>

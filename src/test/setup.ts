@@ -17,7 +17,18 @@ Object.defineProperty(window, 'matchMedia', {
   }),
 });
 
-// jsdom implements neither observer API; framer-motion's whileInView needs both.
+// Mock window.scrollTo
+Object.defineProperty(window, 'scrollTo', {
+  writable: true,
+  value: vi.fn(),
+});
+
+// Mock Element.prototype.scrollIntoView
+if (typeof Element !== 'undefined') {
+  Element.prototype.scrollIntoView = vi.fn();
+}
+
+// jsdom implements neither observer API; framer-motion needs both.
 class MockObserver {
   observe() {}
   unobserve() {}
@@ -29,7 +40,25 @@ class MockObserver {
 vi.stubGlobal('IntersectionObserver', MockObserver);
 vi.stubGlobal('ResizeObserver', MockObserver);
 
-// Cleanup after each test case (e.g. clearing jsdom)
+// Mock fetch for deterministic testing without external API dependency
+const mockFetch = vi.fn().mockImplementation((url: RequestInfo | URL) => {
+  const urlStr = typeof url === 'string' ? url : url.toString();
+  if (urlStr.includes('/repos')) {
+    return Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve([
+        { name: 'repo-1', stargazers_count: 5, forks_count: 2, language: 'TypeScript' }
+      ]),
+    });
+  }
+  return Promise.resolve({
+    ok: true,
+    json: () => Promise.resolve({ stargazers_count: 5, forks_count: 2 }),
+  });
+});
+vi.stubGlobal('fetch', mockFetch);
+
+// Cleanup after each test case
 afterEach(() => {
   cleanup();
 });

@@ -5,12 +5,14 @@ import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useTheme } from '../context/ThemeContext';
+import { useRecruiterMode } from '../context/RecruiterContext';
 import { toast } from 'sonner';
 
 export function CommandPalette() {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const { isRecruiterMode, toggleRecruiterMode } = useRecruiterMode();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -92,6 +94,13 @@ export function CommandPalette() {
 
                 <Command.Group heading="Quick Actions" className="px-2 py-2 text-xs text-gh-text-muted font-semibold [&_[cmdk-group-heading]]:mb-2">
                   <Command.Item 
+                    onSelect={() => runCommand(toggleRecruiterMode)}
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer aria-selected:bg-gh-blue/10 aria-selected:text-gh-blue hover:bg-gh-blue/10 hover:text-gh-blue text-sm text-gh-text font-normal transition-colors"
+                  >
+                    <Briefcase size={16} />
+                    {isRecruiterMode ? 'Exit Recruiter View (Switch to Full View)' : 'Switch to Recruiter View (Concise)'}
+                  </Command.Item>
+                  <Command.Item 
                     onSelect={() => runCommand(toggleTheme)}
                     className="flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer aria-selected:bg-gh-blue/10 aria-selected:text-gh-blue hover:bg-gh-blue/10 hover:text-gh-blue text-sm text-gh-text font-normal transition-colors"
                   >
@@ -106,16 +115,22 @@ export function CommandPalette() {
                     Copy Email Address
                   </Command.Item>
                   <Command.Item 
+                    onSelect={() => runCommand(() => navigate('/resume'))}
+                    className="flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer aria-selected:bg-gh-blue/10 aria-selected:text-gh-blue hover:bg-gh-blue/10 hover:text-gh-blue text-sm text-gh-text font-normal transition-colors"
+                  >
+                    <FileText size={16} /> View Print-Friendly Resume Page
+                  </Command.Item>
+                  <Command.Item 
                     onSelect={() => runCommand(() => window.open('/Gokul_Resume.pdf', '_blank'))}
                     className="flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer aria-selected:bg-gh-blue/10 aria-selected:text-gh-blue hover:bg-gh-blue/10 hover:text-gh-blue text-sm text-gh-text font-normal transition-colors"
                   >
-                    <FileText size={16} /> Download Resume
+                    <FileText size={16} /> Download Resume PDF
                   </Command.Item>
                   <Command.Item 
-                    onSelect={() => runCommand(() => navigate('/archive'))}
+                    onSelect={() => runCommand(() => navigate('/projects'))}
                     className="flex items-center gap-3 px-3 py-2.5 rounded-lg cursor-pointer aria-selected:bg-gh-blue/10 aria-selected:text-gh-blue hover:bg-gh-blue/10 hover:text-gh-blue text-sm text-gh-text font-normal transition-colors"
                   >
-                    <Archive size={16} /> Full Project Archive
+                    <Archive size={16} /> View All Projects Explorer
                   </Command.Item>
                 </Command.Group>
 
@@ -132,25 +147,25 @@ export function CommandPalette() {
                     onSelect={() => runCommand(() => jumpTo('about'))}
                     className="flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer aria-selected:bg-gh-blue/10 aria-selected:text-gh-blue hover:bg-gh-blue/10 hover:text-gh-blue text-sm text-gh-text font-normal transition-colors"
                   >
-                    <User size={16} /> 01. About Me
-                  </Command.Item>
-                  <Command.Item 
-                    onSelect={() => runCommand(() => jumpTo('experience'))}
-                    className="flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer aria-selected:bg-gh-blue/10 aria-selected:text-gh-blue hover:bg-gh-blue/10 hover:text-gh-blue text-sm text-gh-text font-normal transition-colors"
-                  >
-                    <Briefcase size={16} /> 02. Experience
+                    <User size={16} /> 01. About
                   </Command.Item>
                   <Command.Item 
                     onSelect={() => runCommand(() => jumpTo('projects'))}
                     className="flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer aria-selected:bg-gh-blue/10 aria-selected:text-gh-blue hover:bg-gh-blue/10 hover:text-gh-blue text-sm text-gh-text font-normal transition-colors"
                   >
-                    <Briefcase size={16} /> 03. Featured Work
+                    <Briefcase size={16} /> 02. Selected Projects
                   </Command.Item>
                   <Command.Item 
                     onSelect={() => runCommand(() => jumpTo('skills'))}
                     className="flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer aria-selected:bg-gh-blue/10 aria-selected:text-gh-blue hover:bg-gh-blue/10 hover:text-gh-blue text-sm text-gh-text font-normal transition-colors"
                   >
-                    <Code size={16} /> 04. Technical Skills
+                    <Code size={16} /> 03. Technical Skills
+                  </Command.Item>
+                  <Command.Item 
+                    onSelect={() => runCommand(() => jumpTo('experience'))}
+                    className="flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer aria-selected:bg-gh-blue/10 aria-selected:text-gh-blue hover:bg-gh-blue/10 hover:text-gh-blue text-sm text-gh-text font-normal transition-colors"
+                  >
+                    <Briefcase size={16} /> 04. Experience
                   </Command.Item>
                   <Command.Item 
                     onSelect={() => runCommand(() => jumpTo('contact'))}

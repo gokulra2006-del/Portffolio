@@ -3,9 +3,8 @@ import { describe, it, expect } from 'vitest';
 import { HelmetProvider } from 'react-helmet-async';
 import App from '../App';
 
-describe('App', () => {
-  // Guards against the whole tree failing to mount, which renders as a blank page.
-  it('mounts without crashing', () => {
+describe('App Smoke Test', () => {
+  it('mounts the application tree without crashing', () => {
     const { container } = render(
       <HelmetProvider>
         <App />
