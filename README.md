@@ -5,7 +5,7 @@
 
 Production-ready personal engineering portfolio and project case study showcase for **Gokul Ramachandran**, Junior Full-Stack Engineer with an AI systems focus.
 
-🌐 **Live Deployment:** [https://portffolio-35jacgw0t-gokulra2006-dels-projects.vercel.app](https://portffolio-35jacgw0t-gokulra2006-dels-projects.vercel.app)
+🌐 **Live Deployment:** [https://portffolio-p0zdfx9af-gokulra2006-dels-projects.vercel.app](https://portffolio-p0zdfx9af-gokulra2006-dels-projects.vercel.app)
 
 ---
 

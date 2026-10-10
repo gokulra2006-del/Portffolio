@@ -87,7 +87,7 @@ export function ResumePage() {
               </p>
               <p className="flex items-center sm:justify-end gap-1.5">
                 <Globe size={12} className="text-gh-blue print:text-black" />
-                <span>gokulramachandran.com</span>
+                <span>portffolio-p0zdfx9af-gokulra2006-dels-projects.vercel.app</span>
               </p>
             </div>
           </div>

@@ -72,7 +72,7 @@ function AppContent() {
     '@context': 'https://schema.org',
     '@type': 'Person',
     name: 'Gokul Ramachandran',
-    url: 'https://gokulramachandran.com',
+    url: 'https://portffolio-p0zdfx9af-gokulra2006-dels-projects.vercel.app',
     jobTitle: 'Junior Full-Stack Engineer',
     alumniOf: {
       '@type': 'CollegeOrUniversity',
@@ -89,7 +89,7 @@ function AppContent() {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
     name: 'Gokul Ramachandran Portfolio',
-    url: 'https://gokulramachandran.com',
+    url: 'https://portffolio-p0zdfx9af-gokulra2006-dels-projects.vercel.app',
   };
 
   return (
@@ -101,7 +101,7 @@ function AppContent() {
           name="description"
           content="Junior Full-Stack Engineer building reliable web products and practical AI systems from API design to polished user experience."
         />
-        <link rel="canonical" href="https://gokulramachandran.com/" />
+        <link rel="canonical" href="https://portffolio-p0zdfx9af-gokulra2006-dels-projects.vercel.app/" />
 
         {/* OpenGraph Meta */}
         <meta property="og:title" content="Gokul Ramachandran | Junior Full-Stack Engineer" />
@@ -110,8 +110,8 @@ function AppContent() {
           content="Junior Full-Stack Engineer building reliable web products and practical AI systems from API design to polished user experience."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://gokulramachandran.com/" />
-        <meta property="og:image" content="https://gokulramachandran.com/og.png" />
+        <meta property="og:url" content="https://portffolio-p0zdfx9af-gokulra2006-dels-projects.vercel.app/" />
+        <meta property="og:image" content="https://portffolio-p0zdfx9af-gokulra2006-dels-projects.vercel.app/og.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
 
@@ -122,7 +122,7 @@ function AppContent() {
           name="twitter:description"
           content="Junior Full-Stack Engineer building reliable web products and practical AI systems from API design to polished user experience."
         />
-        <meta name="twitter:image" content="https://gokulramachandran.com/og.png" />
+        <meta name="twitter:image" content="https://portffolio-p0zdfx9af-gokulra2006-dels-projects.vercel.app/og.png" />
 
         {/* Structured Data */}
         <script type="application/ld+json">{JSON.stringify(personSchema)}</script>

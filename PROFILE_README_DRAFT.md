@@ -2,10 +2,10 @@
 
 ### Junior Full-Stack Engineer building reliable web products and practical AI systems.
 
-[![Portfolio](https://img.shields.io/badge/Portfolio-gokulramachandran.com-58a6ff?style=flat-square&logo=googlechrome&logoColor=white)](https://gokulramachandran.com)
+[![Portfolio](https://img.shields.io/badge/Portfolio-Vercel%20Live-58a6ff?style=flat-square&logo=googlechrome&logoColor=white)](https://portffolio-p0zdfx9af-gokulra2006-dels-projects.vercel.app)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-gokul--r-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/gokul-r-513299327/)
 [![Email](https://img.shields.io/badge/Email-gokulra2006%40gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white)](mailto:gokulra2006@gmail.com)
-[![Resume](https://img.shields.io/badge/Resume-PDF-3fb950?style=flat-square&logo=adobeacrobatreader&logoColor=white)](https://gokulramachandran.com/Gokul_Resume.pdf)
+[![Resume](https://img.shields.io/badge/Resume-PDF-3fb950?style=flat-square&logo=adobeacrobatreader&logoColor=white)](https://portffolio-p0zdfx9af-gokulra2006-dels-projects.vercel.app/Gokul_Resume.pdf)
 
 ---
 
@@ -53,7 +53,7 @@
 
 ### 📬 Connect With Me
 
-- 🌐 **Portfolio & Interactive Case Studies:** [gokulramachandran.com](https://gokulramachandran.com)
+- 🌐 **Portfolio & Interactive Case Studies:** [portffolio-p0zdfx9af-gokulra2006-dels-projects.vercel.app](https://portffolio-p0zdfx9af-gokulra2006-dels-projects.vercel.app)
 - 💼 **LinkedIn:** [linkedin.com/in/gokul-r-513299327](https://www.linkedin.com/in/gokul-r-513299327/)
-- 📄 **Resume:** [Download PDF](https://gokulramachandran.com/Gokul_Resume.pdf)
+- 📄 **Resume:** [Download PDF](https://portffolio-p0zdfx9af-gokulra2006-dels-projects.vercel.app/Gokul_Resume.pdf)
 - ✉️ **Direct Email:** [gokulra2006@gmail.com](mailto:gokulra2006@gmail.com)
