@@ -81,8 +81,8 @@ export function ResumePage() {
               </p>
               <p className="flex items-center sm:justify-end gap-1.5">
                 <FaLinkedin size={12} className="text-gh-blue print:text-black" />
-                <a href="https://www.linkedin.com/in/gokul-r-513299327/" target="_blank" rel="noreferrer" className="hover:underline">
-                  linkedin.com/in/gokul-r-513299327
+                <a href="https://www.linkedin.com/in/gokul-ramachandran-513299327/" target="_blank" rel="noreferrer" className="hover:underline">
+                  linkedin.com/in/gokul-ramachandran-513299327
                 </a>
               </p>
               <p className="flex items-center sm:justify-end gap-1.5">

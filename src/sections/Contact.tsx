@@ -176,7 +176,7 @@ export function Contact() {
             </a>
 
             <a
-              href="https://www.linkedin.com/in/gokul-r-513299327/"
+                  href="https://www.linkedin.com/in/gokul-ramachandran-513299327/"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-outline text-xs sm:text-sm py-2.5 px-4 flex items-center gap-2"

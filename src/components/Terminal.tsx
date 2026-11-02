@@ -57,7 +57,7 @@ const COMMANDS: Record<string, () => React.ReactNode> = {
   ),
   contact: () => (
     <p>
-      Email: <a href="mailto:gokulra2006@gmail.com" className="text-gh-blue underline">gokulra2006@gmail.com</a> | GitHub: <a href="https://github.com/gokulra2006-del" target="_blank" rel="noopener noreferrer" className="text-gh-blue underline">gokulra2006-del</a> | LinkedIn: <a href="https://www.linkedin.com/in/gokul-r-513299327/" target="_blank" rel="noopener noreferrer" className="text-gh-blue underline">Gokul R</a>
+      Email: <a href="mailto:gokulra2006@gmail.com" className="text-gh-blue underline">gokulra2006@gmail.com</a> | GitHub: <a href="https://github.com/gokulra2006-del" target="_blank" rel="noopener noreferrer" className="text-gh-blue underline">gokulra2006-del</a> | LinkedIn: <a href="https://www.linkedin.com/in/gokul-ramachandran-513299327/" target="_blank" rel="noopener noreferrer" className="text-gh-blue underline">Gokul R</a>
     </p>
   ),
   resume: () => (

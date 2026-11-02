@@ -49,8 +49,8 @@ export function Hero() {
         {/* Clear Headline */}
         <FadeIn>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-semibold text-gh-text-muted leading-tight">
-            Junior Full-Stack Engineer <br className="hidden sm:inline" />
-            <span className="text-gh-text font-bold">building reliable web products and practical AI systems</span>
+            Aspiring AWS Cloud Security Analyst <br className="hidden sm:inline" />
+            <span className="text-gh-text font-bold">building detection, IAM, and DevSecOps labs</span>
           </h2>
         </FadeIn>
 
@@ -107,7 +107,7 @@ export function Hero() {
                 <motion.a
                   whileHover={{ scale: 1.15, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  href="https://www.linkedin.com/in/gokul-r-513299327/"
+                href="https://www.linkedin.com/in/gokul-ramachandran-513299327/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-gh-text-muted hover:text-gh-blue transition-colors p-2.5 rounded-lg hover:bg-gh-border/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gh-blue inline-flex items-center justify-center"

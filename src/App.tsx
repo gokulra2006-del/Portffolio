@@ -73,14 +73,14 @@ function AppContent() {
     '@type': 'Person',
     name: 'Gokul Ramachandran',
     url: 'https://portffolio-p0zdfx9af-gokulra2006-dels-projects.vercel.app',
-    jobTitle: 'Junior Full-Stack Engineer',
+    jobTitle: 'Aspiring AWS Cloud Security Analyst',
     alumniOf: {
       '@type': 'CollegeOrUniversity',
       name: 'VIT Chennai',
     },
     sameAs: [
       'https://github.com/gokulra2006-del',
-      'https://www.linkedin.com/in/gokul-r-513299327/',
+      'https://www.linkedin.com/in/gokul-ramachandran-513299327/',
     ],
     knowsAbout: ['TypeScript', 'React', 'Node.js', 'Express', 'Python', 'C#', '.NET 8', 'MongoDB', 'REST APIs', 'LLMs'],
   };
@@ -96,10 +96,10 @@ function AppContent() {
     <div className="relative min-h-screen bg-gh-bg text-gh-text selection:bg-gh-blue/30 selection:text-gh-blue overflow-x-hidden cursor-default transition-colors duration-300">
       <SpotlightCursor />
       <Helmet>
-        <title>Gokul Ramachandran | Junior Full-Stack Engineer (AI Systems Focus)</title>
+        <title>Gokul Ramachandran | Aspiring AWS Cloud Security Analyst</title>
         <meta
           name="description"
-          content="Junior Full-Stack Engineer building reliable web products and practical AI systems from API design to polished user experience."
+          content="Third-year CSE student at VIT Chennai building AWS cloud security labs across IAM, detection engineering, DevSecOps, and incident response."
         />
         <link rel="canonical" href="https://portffolio-p0zdfx9af-gokulra2006-dels-projects.vercel.app/" />
 

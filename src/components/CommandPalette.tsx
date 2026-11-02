@@ -185,7 +185,7 @@ export function CommandPalette() {
                     <FaGithub size={16} /> GitHub Profile <ExternalLink size={12} className="ml-auto opacity-50" />
                   </Command.Item>
                   <Command.Item 
-                    onSelect={() => runCommand(() => window.open('https://www.linkedin.com/in/gokul-r-513299327/', '_blank'))}
+                    onSelect={() => runCommand(() => window.open('https://www.linkedin.com/in/gokul-ramachandran-513299327/', '_blank'))}
                     className="flex items-center gap-3 px-3 py-2 rounded-lg cursor-pointer aria-selected:bg-gh-blue/10 aria-selected:text-gh-blue hover:bg-gh-blue/10 hover:text-gh-blue text-sm text-gh-text font-normal transition-colors"
                   >
                     <FaLinkedin size={16} /> LinkedIn <ExternalLink size={12} className="ml-auto opacity-50" />
