@@ -320,5 +320,46 @@ export const PROJECTS: Project[] = [
       tradeoffs: 'Chunking strategy optimized for conceptual text rather than mathematical formulas or diagrams.',
       futureImprovements: 'Support multi-modal document parsing for charts and code blocks, and add localized caching for frequent questions.'
     }
+  },
+  {
+    id: 'vigilora-ai',
+    title: 'VigiloraAI',
+    tagline: 'Autonomous Security Operations Platform',
+    featured: true,
+    role: 'Security & AI Systems Developer',
+    domains: ['AI/ML', 'Systems'],
+    description: 'A security operations concept that combines real-time YOLOv8 threat detection, GIS tracking, and automated response workflows for passive CCTV networks.',
+    problem: 'Security teams need a faster path from visual events to triage and containment decisions.',
+    targetUsers: 'Security operators reviewing camera events and incident response workflows.',
+    approach: 'Combined computer-vision event detection, live location context, and SOAR-style response actions in a TypeScript application.',
+    outcome: 'Built a TypeScript security operations interface with real-time detection and response concepts; add measured impact: [benchmark detection latency, precision, and response workflow completion time].',
+    challenge: 'Connecting noisy real-time detections to operator-friendly triage without presenting unverified events as facts.',
+    tech: ['TypeScript', 'YOLOv8', 'GIS', 'SOAR', 'Real-time Detection'],
+    github: 'https://github.com/gokulra2006-del/VigiloraAI',
+    live: 'https://vigilora-e7gue9639-gokulra2006-dels-projects.vercel.app',
+    highlights: [
+      'Implemented a real-time security monitoring interface around object and threat detection events.',
+      'Added GIS context for operational awareness and an automated-response workflow concept.',
+      'Documented the gap between a prototype detection signal and a production security decision.'
+    ],
+    evidence: {
+      github: 'https://github.com/gokulra2006-del/VigiloraAI',
+      securityChecks: ['Prototype-only response actions', 'No real-world surveillance data claimed'],
+      privatePlaceholders: ['[Add labelled test-set precision/recall and event-to-alert latency]']
+    },
+    mediaPlaceholder: { type: 'screenshot', caption: 'VigiloraAI security operations and GIS monitoring interface' },
+    caseStudy: {
+      context: 'Security-operations prototype exploring how computer vision can support faster human-led incident triage.',
+      problem: 'Passive camera feeds create a high-volume review burden and make it difficult to connect visual events with location and response context.',
+      users: 'Security operators and incident responders reviewing generated events.',
+      responsibilities: 'Designed the interface and integrated the detection, mapping, and response workflow concepts.',
+      architecture: 'Camera/event source -> YOLOv8 detection -> TypeScript event service -> GIS context -> operator console -> controlled response workflow.',
+      technicalDecisions: ['Kept automated response actions explicit and reviewable instead of silently acting on a model prediction.', 'Separated detection events from response decisions so confidence and operator approval can be measured independently.'],
+      securityConsiderations: 'Treats model output as a signal requiring review; do not connect the prototype to real cameras or automated enforcement without authorization, logging, and privacy controls.',
+      testingStrategy: 'Add a labelled test set, replay recorded fixtures, measure precision/recall and event latency, and test failure states when the detector or map service is unavailable.',
+      metrics: 'add measured impact: [detection precision, recall, end-to-end alert latency, and operator acknowledgement time].',
+      tradeoffs: 'Prototype prioritizes an understandable operator workflow over a production-grade video ingestion and model-serving stack.',
+      futureImprovements: 'Add authenticated event ingestion, privacy-preserving retention, model drift monitoring, and an auditable approval workflow.'
+    }
   }
 ];
