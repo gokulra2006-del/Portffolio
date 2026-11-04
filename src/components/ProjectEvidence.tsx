@@ -79,7 +79,7 @@ export function ProjectEvidence({ evidence, showDevPlaceholders = false }: Proje
         {evidence.ciStatus && (
           <span className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-md bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
             <CheckCircle size={12} />
-            <span>CI: Automated Tests Passing</span>
+            <a href={`${evidence.github}/actions`} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">Inspect CI runs</a>
           </span>
         )}
 

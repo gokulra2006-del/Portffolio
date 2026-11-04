@@ -12,6 +12,7 @@ import { Footer } from "./components/Footer";
 import { SpotlightCursor } from "./components/SpotlightCursor";
 import { Hero } from "./sections/Hero";
 import { ProofStrip } from "./components/ProofStrip";
+import { InterviewGuide } from "./components/InterviewGuide";
 import { About } from "./sections/About";
 import { Experience } from "./sections/Experience";
 import { Projects } from "./sections/Projects";
@@ -54,6 +55,7 @@ function MainSite() {
       <main id="main-content" className="relative z-10 flex flex-col items-center w-full">
         <Hero />
         <ProofStrip />
+        <InterviewGuide />
         {!isRecruiterMode && <About />}
         <Projects />
         <Skills />

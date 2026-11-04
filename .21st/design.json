@@ -1,0 +1,112 @@
+{
+  "version": 1,
+  "project": {
+    "name": "portfolio",
+    "productType": null,
+    "stack": [
+      "react",
+      "tailwind-v4",
+      "vite"
+    ]
+  },
+  "sources": {
+    "tokens": [
+      "src/index.css",
+      "src/app.css"
+    ],
+    "components": [],
+    "assets": [
+      "src/assets"
+    ],
+    "instructions": []
+  },
+  "design": {
+    "colorMode": "light",
+    "colors": {
+      "--color-gh-bg": {
+        "value": "var(--color-gh-bg)",
+        "source": "src/index.css"
+      },
+      "--color-gh-bg-secondary": {
+        "value": "var(--color-gh-bg-secondary)",
+        "source": "src/index.css"
+      },
+      "--color-gh-border": {
+        "value": "var(--color-gh-border)",
+        "source": "src/index.css"
+      },
+      "--color-gh-text": {
+        "value": "var(--color-gh-text)",
+        "source": "src/index.css"
+      },
+      "--color-gh-text-muted": {
+        "value": "var(--color-gh-text-muted)",
+        "source": "src/index.css"
+      },
+      "--color-gh-blue": {
+        "value": "var(--color-gh-blue)",
+        "source": "src/index.css"
+      },
+      "--color-gh-blue-hover": {
+        "value": "var(--color-gh-blue-hover)",
+        "source": "src/index.css"
+      },
+      "--color-gh-purple": {
+        "value": "var(--color-gh-purple)",
+        "source": "src/index.css"
+      },
+      "--color-gh-purple-hover": {
+        "value": "var(--color-gh-purple-hover)",
+        "source": "src/index.css"
+      }
+    },
+    "typography": {
+      "--font-sans": {
+        "value": "'Inter', sans-serif",
+        "source": "src/index.css"
+      }
+    },
+    "spacing": {},
+    "radius": {},
+    "shadows": {},
+    "motion": {},
+    "density": "unknown"
+  },
+  "components": {
+    "installed": [],
+    "preferredPrimitives": [],
+    "patterns": []
+  },
+  "constraints": {
+    "must": [],
+    "avoid": []
+  },
+  "decisions": [],
+  "evidence": [
+    {
+      "fact": "design.colorMode:light",
+      "source": "src/index.css, src/app.css"
+    },
+    {
+      "fact": "design.tokens",
+      "source": "src/app.css"
+    },
+    {
+      "fact": "design.tokens",
+      "source": "src/index.css"
+    },
+    {
+      "fact": "project.stack:react",
+      "source": "package.json"
+    },
+    {
+      "fact": "project.stack:tailwind-v4",
+      "source": "package.json"
+    },
+    {
+      "fact": "project.stack:vite",
+      "source": "package.json"
+    }
+  ],
+  "generatedAt": "2026-11-04T07:37:33.768Z"
+}

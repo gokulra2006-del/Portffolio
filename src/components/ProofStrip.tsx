@@ -53,13 +53,13 @@ export function ProofStrip() {
                     <Icon size={16} />
                   </div>
                   <div className="min-w-0">
-                    <p className="text-[10px] font-mono uppercase tracking-wider text-gh-text-muted truncate">
+                    <p className="text-[10px] font-mono uppercase tracking-wider text-gh-text-muted">
                       {item.label}
                     </p>
-                    <p className="text-xs sm:text-sm font-semibold text-gh-text mt-0.5 truncate">
+                    <p className="text-xs sm:text-sm font-semibold text-gh-text mt-0.5">
                       {item.headline}
                     </p>
-                    <p className="text-[11px] text-gh-text-muted mt-0.5 line-clamp-1">
+                    <p className="text-[11px] text-gh-text-muted mt-0.5">
                       {item.subtext}
                     </p>
                   </div>
@@ -71,7 +71,7 @@ export function ProofStrip() {
           {/* Quick Credibility Links */}
           <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-gh-border/50 text-xs font-mono">
             <span className="text-gh-text-muted">
-              Verified GitHub repositories and live engineering case studies.
+              Explore the source code, project decisions, and resume.
             </span>
             <div className="flex items-center gap-4">
               <a

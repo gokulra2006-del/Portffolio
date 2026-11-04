@@ -29,7 +29,7 @@ export function Hero() {
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span>Currently Available</span>
               <span className="text-emerald-500/50">•</span>
-              <span>Open to junior software engineering opportunities</span>
+              <span>Seeking cloud security internships</span>
             </div>
             <div className="text-xs font-mono text-gh-text-muted flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-gh-bg-secondary border border-gh-border">
               <span>📍 Chennai, India</span>
@@ -50,14 +50,14 @@ export function Hero() {
         <FadeIn>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-semibold text-gh-text-muted leading-tight">
             Aspiring AWS Cloud Security Analyst <br className="hidden sm:inline" />
-            <span className="text-gh-text font-bold">building detection, IAM, and DevSecOps labs</span>
+            <span className="text-gh-text font-bold">with a foundation in software engineering</span>
           </h2>
         </FadeIn>
 
         {/* Supporting Statement */}
         <FadeIn>
           <p className="text-base sm:text-lg text-gh-text-muted max-w-2xl leading-relaxed">
-            I engineer production-minded full-stack web applications and low-latency audio/ML systems—from schema design and type-safe APIs to responsive, accessible client interfaces.
+            I’m a CSE student at VIT Chennai moving toward cloud security. Explore my web, AI, and systems projects, the decisions behind them, and the source code you can review before we talk.
           </p>
         </FadeIn>
 
